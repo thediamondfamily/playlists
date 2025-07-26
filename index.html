@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spotify Playlist Visualizer</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #121212;
+      color: white;
+      padding: 1rem;
+    }
+    button {
+      background: #1DB954;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    img {
+      height: 64px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .track {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #333;
+      padding: 10px 0;
+    }
+    canvas {
+      background: white;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎧 Spotify Playlist Visualizer</h1>
+  <div id="login" style="display:none;">
+    <button onclick="login()">Login with Spotify</button>
+  </div>
+  <div id="app" style="display:none;">
+    <h2>Public Playlists from <span id="username"></span>:</h2>
+    <select id="playlists" onchange="loadPlaylist(this.value)"></select>
+    <div id="tracks"></div>
+    <h3>Total Duration: <span id="duration"></span></h3>
+    <canvas id="genreChart" width="400" height="400"></canvas>
+  </div>
+
+  <script src="spotify-visualizer.js"></script>
+</body>
+</html>
